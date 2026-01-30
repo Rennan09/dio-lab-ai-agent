@@ -15,6 +15,7 @@ Diferente de soluções que apenas recomendam produtos ou tomam decisões autom�
 - 🛑 Sem decisões automáticas ou execução de operações financeiras
 - 🎯 Foco em educação, reflexão e autonomia financeira
 
+
 ---
 
 ## ❗ O Problema
