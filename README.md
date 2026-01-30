@@ -1,149 +1,144 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# Sup 🤝💰  
+### Seu ajudante inteligente de organização e motivação financeira
 
-## Contexto
+O **Sup** é um agente financeiro inteligente focado em **apoio, conscientização e motivação financeira**, criado para ajudar pessoas que se sentem sobrecarregadas, desmotivadas ou sem tempo para cuidar da própria vida financeira.
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
-
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+Diferente de soluções que apenas recomendam produtos ou tomam decisões automáticas, o Sup atua como um **companheiro financeiro consciente**, ajudando o usuário a entender sua realidade financeira, refletir sobre prioridades e reduzir o peso psicológico associado ao planejamento financeiro.
 
 ---
 
-## O Que Você Deve Entregar
+## ✨ Visão Geral
 
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+- 💬 Interface conversacional simples (chat)
+- 🧠 LLM local via **Ollama** (privacidade total dos dados)
+- 📊 Uso de dados reais do usuário (perfil, transações, histórico)
+- 🛑 Sem decisões automáticas ou execução de operações financeiras
+- 🎯 Foco em educação, reflexão e autonomia financeira
 
 ---
 
-### 2. Base de Conhecimento
+## ❗ O Problema
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+Muitas pessoas possuem acesso a dados financeiros — extratos, históricos, produtos — mas:
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+- Não conseguem transformá-los em clareza
+- Sentem ansiedade ao lidar com dinheiro
+- Adiam constantemente o planejamento financeiro
+- Têm medo de tomar decisões erradas
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+O problema não é falta de informação.  
+É **falta de orientação contextualizada, responsável e humana**.
 
 ---
 
-### 3. Prompts do Agente
+## ✅ A Solução
 
-Documente os prompts que definem o comportamento do seu agente:
+O **Sup** centraliza e contextualiza informações financeiras do usuário para responder perguntas de forma clara, responsável e personalizada.
 
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
+Ele:
+- Analisa o contexto financeiro completo do usuário
+- Estimula reflexão sobre tempo, metas e decisões
+- Ajuda a quebrar o mito de que planejamento financeiro é “tempo perdido”
+- Atua como apoio motivacional, nunca como decisor
 
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
+> ⚠️ O Sup **não executa operações financeiras**, **não recomenda investimentos sem contexto** e **não substitui profissionais**.
 
 ---
 
-### 5. Avaliação e Métricas
+## 🧠 Como Funciona
 
-Descreva como você avalia a qualidade do seu agente:
+O agente constrói um **contexto único por usuário**, combinando:
 
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
+- Perfil do investidor (`perfil_investidor.json`)
+- Histórico de transações (`transacoes.csv`)
+- Atendimentos anteriores (`historico_atendimento.csv`)
+- Produtos financeiros disponíveis (`produtos_financeiros.json`)
 
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
+Esse contexto é enviado junto ao **System Prompt** para o modelo local no Ollama, garantindo respostas:
 
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
+- Baseadas apenas nos dados fornecidos
+- Sem alucinações
+- Alinhadas às limitações do agente
 
 ---
 
-## Ferramentas Sugeridas
+## 🧩 Tecnologias Utilizadas
 
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+- **Python**
+- **Streamlit** – Interface web
+- **Ollama** – Execução local de LLM
+- **Requests** – Comunicação HTTP
+- **Pandas** – Manipulação de dados
+- **JSON / CSV** – Persistência de dados
 
 ---
 
-## Estrutura do Repositório
+## 🔐 Princípios de Segurança e Ética
 
-```
-📁 lab-agente-financeiro/
-│
-├── 📄 README.md
-│
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
-│
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
-│
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
-```
+- 🔒 Execução local do modelo (privacidade)
+- ❌ Nenhuma informação sensível é solicitada
+- ❌ Nenhuma decisão financeira é tomada pelo agente
+- 📚 Respostas baseadas apenas nos dados fornecidos
+- 🧠 Incentivo constante à verificação das informações
 
 ---
 
-## Dicas Finais
+## 🧭 Limitações Declaradas
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+O Sup:
+- Não resolve problemas financeiros de forma definitiva
+- Não executa operações bancárias
+- Não fornece aconselhamento financeiro personalizado sem contexto
+- Não substitui um consultor financeiro
+
+Ele é um **apoio temporário e educativo**, um “empurrãozinho” para quem precisa retomar o controle da própria vida financeira.
+
+---
+
+## ▶️ Executando o Projeto
+
+### Pré-requisitos
+- Python 3.10+
+- Ollama instalado e rodando localmente
+- Modelo configurado no Ollama (ex: `gpt-oss`)
+
+### Instalação
+bash
+pip install -r requirements.txt
+
+## Execução
+streamlit run app.py
+
+##📌 Exemplo de Uso
+
+Usuário:
+
+"Não tenho tempo para organizar minhas finanças."
+
+Sup:
+
+"Entendo essa sensação. Podemos avaliar juntos quanto tempo seria necessário para organizar o básico e refletir se esse tempo é maior do que parece. Você prefere começar por gastos, dívidas ou metas?"
+
+##🚀 Impacto
+
+O Sup busca tornar o planejamento financeiro:
+
+Mais acessível
+
+Menos intimidador
+
+Mais humano
+
+Mais consciente
+
+Acreditamos que educação financeira começa pela clareza, não pela pressão.
+
+## 📄 Licença
+
+Este projeto é open-source e pode ser adaptado para fins educacionais, acadêmicos ou experimentais.
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas!
+Sinta-se à vontade para abrir issues, sugerir melhorias ou enviar pull requests.
+
